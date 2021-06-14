@@ -6,14 +6,11 @@ import {
 	Heading,
 	Image,
 	Text,
-	Button,
 	Modal,
 	ModalBody,
 	ModalCloseButton,
 	ModalContent,
-	ModalFooter,
 	ModalHeader,
-	ModalOverlay,
 } from '@chakra-ui/react';
 
 export const EventDetail = ({ event, isOpen, onClose }) => {

@@ -11,7 +11,7 @@ const inititialState = [
 		name: 'Michal',
 		surname: 'Šindelka',
 		adress: 'Kosice',
-		desc: 'Himalaye',
+		desc: 'Himaláje',
 		img:
 			'https://3y5rx2.5gcdn.net/ext/resize_1440,q_70,auto?src=https%3A%2F%2Fbubo.sk%2Fuploads%2Fusr%2F10918%2Fblogy%2Fhimalaje-pouzitelne%2Fnanga-reflection.JPG%3Fmd%3D38bc351ffd3bf96f20ede20b43c33467',
 		date: new Date().toLocaleString() + '',
