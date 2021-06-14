@@ -1,14 +1,13 @@
-import './App.css';
+import * as React from 'react';
 import { Events } from './components/events';
+
+import { ChakraProvider } from '@chakra-ui/react';
 
 function App() {
 	return (
-		<div className="App">
-			<header className="App-header">
-				<Events />
-			</header>
-		</div>
+		<ChakraProvider>
+			<Events />
+		</ChakraProvider>
 	);
 }
-
 export default App;
