@@ -1,6 +1,6 @@
 # Event List
 
-Simple example project of adding evets to list. 
+Simple example project of adding evets to the list. 
 
 ## Available Scripts
 
