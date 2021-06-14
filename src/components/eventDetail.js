@@ -18,29 +18,31 @@ import {
 
 export const EventDetail = ({ event, isOpen, onClose }) => {
 	return (
-		<Modal isOpen={isOpen} onClose={onClose}>
-			<ModalOverlay />
+		<Modal size="xl" isOpen={isOpen} onClose={onClose}>
 			<ModalContent>
 				<ModalHeader>Event Details</ModalHeader>
 				<ModalCloseButton />
 
 				<ModalBody pb={6}>
-					<Image src={event.img} w="full" h="sm" objectFit="cover" />
+					<Image src={event.img} w="xl" h="xl" objectFit="cover" />
 					<Container maxWidth="container.md" py="8">
 						<Box mb="4">
 							<Heading>{event.desc}</Heading>
 						</Box>
+						created by:
 						<Text fontWeight="bold" fontSize="20px">
-							created by: {event.name} {event.surname}
+							{event.name} {event.surname}
 						</Text>
-						<Text fontSize="20px"> {event.adress}</Text>
-						<Text fontSize="16px">created at: {event.date}</Text>
+						adress:
+						<Text fontWeight="bold" fontSize="20px">
+							{event.adress}
+						</Text>
+						created at:
+						<Text fontWeight="bold" fontSize="16px">
+							{event.date}
+						</Text>
 					</Container>
 				</ModalBody>
-
-				<ModalFooter>
-					<Button onClick={onClose}>Close</Button>
-				</ModalFooter>
 			</ModalContent>
 		</Modal>
 	);

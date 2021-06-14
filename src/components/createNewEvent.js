@@ -22,14 +22,37 @@ const intialValues = {
 
 export const CreateNewEvent = ({ onClose, isOpen, handleAddEvent }) => {
 	const [newEvent, setEvent] = React.useState(intialValues);
+	const [image, setImage] = React.useState('');
 
 	const handleCreateEvent = (e) => {
 		const { name, value } = e.target;
 		setEvent({ ...newEvent, [name]: value });
 	};
+
+	const uploadImage = async (e) => {
+		const file = e.target.files[0];
+		const base64 = await convertBase64(file);
+		setImage(base64);
+	};
+
+	const convertBase64 = (file) => {
+		return new Promise((resolve, reject) => {
+			const fileReader = new FileReader();
+			fileReader.readAsDataURL(file);
+
+			fileReader.onload = () => {
+				resolve(fileReader.result);
+			};
+
+			fileReader.onerror = (error) => {
+				reject(error);
+			};
+		});
+	};
+
 	const handleSubmitForm = (e) => {
 		e.preventDefault();
-		handleAddEvent(newEvent);
+		handleAddEvent(newEvent, image);
 		setEvent(intialValues);
 		onClose();
 	};
@@ -92,7 +115,7 @@ export const CreateNewEvent = ({ onClose, isOpen, handleAddEvent }) => {
 							name="img"
 							variant="flushed"
 							value={newEvent.img}
-							onChange={handleCreateEvent}
+							onChange={(e) => uploadImage(e)}
 						/>
 					</FormControl>
 				</ModalBody>
