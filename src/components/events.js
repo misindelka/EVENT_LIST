@@ -1,19 +1,27 @@
 import * as React from 'react';
-import { Button, Grid } from '@chakra-ui/react';
+import { Button, Grid, useDisclosure } from '@chakra-ui/react';
 
 import { Event } from './event';
+import { CreateNewEvent } from './createNewEvent';
 
-const initialEventsValue = [
+const inititialState = [
 	{
 		id: 1,
 		name: 'name',
 		surname: 'surname',
+		adress: 'adress',
 		desc: 'event',
 		img: 'img',
 	},
 ];
 export const Events = () => {
-	const [events, setEvensts] = React.useState(initialEventsValue);
+	const [events, setEvensts] = React.useState(inititialState);
+	const { isOpen, onOpen, onClose } = useDisclosure();
+
+	const handleAddEvent = (newEvent) => {
+		newEvent.id = events.length + 1;
+		setEvensts([...events, newEvent]);
+	};
 
 	return (
 		<Grid
@@ -22,6 +30,21 @@ export const Events = () => {
 			{events.map((event) => (
 				<Event key={event.id} event={event} />
 			))}
+			<Button
+				border="1px"
+				h="50px"
+				mt="15%"
+				mr="3"
+				ml="3"
+				onClick={onOpen}
+				cursor="pointer">
+				Add new event
+			</Button>
+			<CreateNewEvent
+				isOpen={isOpen}
+				onClose={onClose}
+				handleAddEvent={handleAddEvent}
+			/>
 		</Grid>
 	);
 };
