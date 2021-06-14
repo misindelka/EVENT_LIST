@@ -1,0 +1,20 @@
+Vytvorte jednoduchý modul pre pridávanie podnetov do aplikácie.
+Súčasťou tohto modulu, má byť možnosť pridať podnet so vstupnými
+poliami:
+- Meno a priezvisko
+- Adresa
+- Popis podnetu
+- Obrázok
+
+Pridanie podnetu je možné hoci akou osobou, bez nutnosti autorizácie.
+Obrázok je možné nahrať s počítača.
+
+Ako ďalšiu časť modulu podnetu, pripravte zoznam všetkých podaných
+podnetov, s radením od najnovších po najstaršie.
+V tomto zozname, zobrazte nasledujúce údaje:
+- Meno a priezvisko
+- Adresa
+- Obrázok
+
+Po kliknutí na podnet, sa zobrazí časť so všetkými zadanými hodnotami
+podnetu + dátum podania podnetu.
