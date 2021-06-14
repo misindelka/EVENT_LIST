@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { Box, Text, Image } from '@chakra-ui/react';
 
-export const Event = ({ event }) => {
+export const Event = ({ event, onOpenDetail }) => {
 	return (
 		<Box
+			cursor="pointer"
+			onClick={() => onOpenDetail()}
 			d="flex"
 			flexDirection="column"
 			alignItems="center"
@@ -16,19 +18,13 @@ export const Event = ({ event }) => {
 			pl="5"
 			pr="5"
 			p="10">
-			<Box overflow="hidden">
-				<Image
-					src={event.img}
-					transition="transform .2s ease-out"
-					_groupHover={{ transform: 'scale(1.1)' }}
-				/>
-			</Box>
-
 			<Text fontWeight="bold" fontSize="20px">
+				{event.desc}
+			</Text>
+
+			<Text fontSize="14px">
 				{event.name} {event.surname}
 			</Text>
-			<Text fontSize="16px">date</Text>
-			<Text fontSize="12px">{event.desc}</Text>
 		</Box>
 	);
 };

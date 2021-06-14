@@ -2,7 +2,7 @@ Vytvorte jednoduchý modul pre pridávanie podnetov do aplikácie.
 Súčasťou tohto modulu, má byť možnosť pridať podnet so vstupnými
 poliami:
 - Meno a priezvisko
-- Adresa
+- Adresa 
 - Popis podnetu
 - Obrázok
 
