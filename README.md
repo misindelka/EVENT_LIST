@@ -2,6 +2,10 @@
 
 Simple example project of adding evets to the list. 
 
+## Used technologies
+
+React JS , Chakra UI, js-base64
+
 ## Available Scripts
 
 clone repository to you computer.
