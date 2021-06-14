@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { Button, Grid, useDisclosure, Text, Box } from '@chakra-ui/react';
+import _, { sortBy } from 'underscore';
+import moment from 'moment';
 
 import { Event } from './event';
 import { CreateNewEvent } from './createNewEvent';
@@ -20,9 +22,9 @@ const inititialState = [
 export const Events = () => {
 	const [events, setEvensts] = React.useState(inititialState);
 
-	const eventsByDate = events.sort(
-		(a, b) => new Date(b.date) - new Date(a.date)
-	);
+	const eventsByDate = _.sortBy(events, function (o) {
+		return new moment(o.date).format('YYYYMMDD');
+	}).reverse();
 
 	const {
 		isOpen: isOpenAddEvent,
@@ -42,6 +44,7 @@ export const Events = () => {
 		newEvent.img = image;
 		setEvensts([...events, newEvent]);
 	};
+	console.log(new Date().toLocaleString());
 
 	return (
 		<Box p="2">
