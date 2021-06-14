@@ -25,6 +25,7 @@ export const Event = ({ event, onOpenDetail }) => {
 			<Text fontSize="14px">
 				{event.name} {event.surname}
 			</Text>
+			<Text fontSize="14px">{event.adress}</Text>
 		</Box>
 	);
 };

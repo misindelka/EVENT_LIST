@@ -17,6 +17,7 @@ const intialValues = {
 	name: '',
 	surname: '',
 	adress: '',
+	img: '',
 };
 
 export const CreateNewEvent = ({ onClose, isOpen, handleAddEvent }) => {
@@ -43,6 +44,7 @@ export const CreateNewEvent = ({ onClose, isOpen, handleAddEvent }) => {
 				<ModalBody pb={6}>
 					<FormControl mt={4}>
 						<Input
+							type="text"
 							name="desc"
 							variant="flushed"
 							value={newEvent.desc}
@@ -53,6 +55,7 @@ export const CreateNewEvent = ({ onClose, isOpen, handleAddEvent }) => {
 
 					<FormControl mt={4}>
 						<Input
+							type="text"
 							name="name"
 							variant="flushed"
 							value={newEvent.name}
@@ -63,6 +66,7 @@ export const CreateNewEvent = ({ onClose, isOpen, handleAddEvent }) => {
 
 					<FormControl mt={4}>
 						<Input
+							type="text"
 							name="surname"
 							variant="flushed"
 							value={newEvent.surname}
@@ -73,11 +77,22 @@ export const CreateNewEvent = ({ onClose, isOpen, handleAddEvent }) => {
 
 					<FormControl mt={4}>
 						<Input
+							type="text"
 							name="adress"
 							variant="flushed"
 							value={newEvent.adress}
 							onChange={handleCreateEvent}
 							placeholder="Adress"
+						/>
+					</FormControl>
+
+					<FormControl mt={4}>
+						<Input
+							type="file"
+							name="img"
+							variant="flushed"
+							value={newEvent.img}
+							onChange={handleCreateEvent}
 						/>
 					</FormControl>
 				</ModalBody>

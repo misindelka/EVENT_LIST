@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, Grid, useDisclosure, Text } from '@chakra-ui/react';
+import { Button, Grid, useDisclosure, Text, Box } from '@chakra-ui/react';
 
 import { Event } from './event';
 import { CreateNewEvent } from './createNewEvent';
@@ -36,44 +36,41 @@ export const Events = () => {
 		setEvensts([...events, newEvent]);
 	};
 
+	const eventsByDate = events.sort(
+		(a, b) => new Date(b.date) - new Date(a.date)
+	);
+
 	return (
-		<>
-			<Text fontWeight="bold" fontSize="20px">
-				EVENT LIST
-			</Text>
+		<Box p="2">
+			<Box d="flex" flexDirection="row" justifyContent="space-around">
+				<Text fontWeight="bold" fontSize="30px">
+					Event List
+				</Text>
+				<Button border="1px" h="50px" onClick={onOpenAddEvent} cursor="pointer">
+					Add new event
+				</Button>
+			</Box>
+
 			<Grid
 				mt="3"
 				gridTemplateColumns={{ base: '1fr 1fr', lg: '1fr 1fr 1fr 1fr' }}>
-				{events.map((event) => (
-					<>
-						<Event
-							key={event.id}
-							event={event}
-							onOpenDetail={onOpenEventDetail}
-						/>
+				{eventsByDate.map((event) => (
+					<div key={event.id}>
+						<Event event={event} onOpenDetail={onOpenEventDetail} />
 						<EventDetail
 							event={event}
 							isOpen={isOpenEventDetail}
 							onClose={onCloseEventDetail}
 						/>
-					</>
+					</div>
 				))}
-				<Button
-					border="1px"
-					h="50px"
-					mt="15%"
-					mr="3"
-					ml="3"
-					onClick={onOpenAddEvent}
-					cursor="pointer">
-					Add new event
-				</Button>
+
 				<CreateNewEvent
 					isOpen={isOpenAddEvent}
 					onClose={onCloseAddEvent}
 					handleAddEvent={handleAddEvent}
 				/>
 			</Grid>
-		</>
+		</Box>
 	);
 };
