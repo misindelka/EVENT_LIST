@@ -12,6 +12,7 @@ const inititialState = [
 		adress: 'adress',
 		desc: 'event',
 		img: 'img',
+		date: new Date().toLocaleString() + '',
 	},
 ];
 export const Events = () => {
@@ -20,6 +21,7 @@ export const Events = () => {
 
 	const handleAddEvent = (newEvent) => {
 		newEvent.id = events.length + 1;
+		newEvent.date = new Date().toLocaleString() + '';
 		setEvensts([...events, newEvent]);
 	};
 
